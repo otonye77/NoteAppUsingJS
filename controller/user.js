@@ -21,7 +21,8 @@ const register = async (req, res) => {
       address,
       password: encryptedPassword,
     });
-    const token = jwt.sign({ email }, "secret_key");
+    const token = jwt.sign({ id: newUser.id, email }, "secret_key");
+    console.log(newUser);
     return res
       .status(201)
       .json({ message: `${newUser.name} created successfully`, token });

@@ -26,7 +26,6 @@ if (formEl) {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-      console.log(data);
       if (data.token) {
         localStorage.setItem("token", data.token);
         window.location.href = "http://localhost:7000/";
@@ -51,10 +50,12 @@ notesFormEl.addEventListener("submit", async (e) => {
     status: "pending",
   };
   try {
+    const token = localStorage.getItem("token");
     const response = await fetch("http://localhost:7000/users/create", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(notesData),
     });
@@ -64,5 +65,3 @@ notesFormEl.addEventListener("submit", async (e) => {
     throw new Error("Failed to complete");
   }
 });
-
-
