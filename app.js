@@ -7,6 +7,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 const usersRouter = require("./routes/user");
+const notesRouter = require("./routes/note");
 const { hasSubscribers } = require("diagnostics_channel");
 
 var app = express();
@@ -40,6 +41,8 @@ app.use(express.static(publicDirectoryPath));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/users", notesRouter)
+
 
 app.listen(7000, () => {
   console.log("Server is listening on port 7000");

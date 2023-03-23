@@ -65,13 +65,4 @@ notesFormEl.addEventListener("submit", async (e) => {
   }
 });
 
-// Notes:[
-//   {
-//   Title: 'Paying Mama Ngozi',
-//   description: 'I am owing 10k',
-//   DueDate:"25th of April 2022",
-//   status:"Pending",
-//   id:"databaseId1"
-//   }
-//   ......
-// ]
+
