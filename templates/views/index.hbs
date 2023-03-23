@@ -4,24 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link
-      rel="stylesheet"
-      href="./css/style.css"
-    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     {{>header}}
     <div class="container">
-    <h1>REGISTERATION PAGE</h1>
-    <form class="form-container">
-        <input class="input-forms" type="text" placeholder="Enter your name" >
-        <input class="input-forms" type="email" placeholder="Enter your email" >
-        <input class="input-forms" type="password" placeholder="Enter your password">
+      <h1>REGISTRATION PAGE</h1>
+      <form class="form-container">
+        <input class="input-forms" type="text" placeholder="Enter your name" />
+        <input class="input-forms" type="email" placeholder="Enter your email" />
+        <input class="input-forms" id="genderInput" type="text" placeholder="Enter your gender" />
+        <input class="input-forms" type="number" placeholder="Enter your phone number" />
+        <input class="input-forms" id="addressInput" type="text" placeholder="Enter your address" />
+        <input class="input-forms" type="password" placeholder="Enter your password" />
         <div class="buttons-container">
-           <p>Already have an account ? <a href="">Login</a></p>
-           <button>Register</button>
+          <p>Already have an account? <a href="">Login</a></p>
+          <button>Register</button>
         </div>
-    </form>
+      </form>
     </div>
     <script src="./js/app.js"></script>
   </body>

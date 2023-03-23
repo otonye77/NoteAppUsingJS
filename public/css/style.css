@@ -26,3 +26,22 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.notes-container {
+  height: 98vh;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-input {
+  width: 100%;
+}
+
+.text-input {
+  margin-top: 5px;
+  width: 100%;
+}
