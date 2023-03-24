@@ -46,34 +46,32 @@ const descriptionInputEl = document.querySelector(".descriptionInput");
 const dateInputEl = document.querySelector(".dateInput");
 
 if (notesFormEl) {
-  if (!isAuthenticated()) {
-    window.location.href = "http://localhost:7000/register";
-  }
-  notesFormEl.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const notesData = {
-      title: titleInputEl.value,
-      description: descriptionInputEl.value,
-      date: dateInputEl.value,
-      status: "pending",
-    };
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:7000/users/create", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(notesData),
-      });
-      const data = await response.json();
-      window.location.href = "http://localhost:7000/notes"
-    } catch (err) {
-      throw new Error("Failed to complete");
-    }
-  });
+  window.location.href = "http://localhost:7000/register";
 }
+notesFormEl.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const notesData = {
+    title: titleInputEl.value,
+    description: descriptionInputEl.value,
+    date: dateInputEl.value,
+    status: "pending",
+  };
+  try {
+    const token = localStorage.getItem("token");
+    const response = await fetch("http://localhost:7000/users/create", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(notesData),
+    });
+    const data = await response.json();
+    window.location.href = "http://localhost:7000/notes";
+  } catch (err) {
+    throw new Error("Failed to complete");
+  }
+});
 
 const viewcontainerEl = document.querySelector(".viewnotescontainer");
 if (viewcontainerEl) {
