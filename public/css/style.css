@@ -1,76 +1,218 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 body {
-  padding: 0;
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+.header a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+.header a:hover {
+  color: #f44336;
+}
+.signout {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.signout:hover {
+  background-color: #ff6666;
 }
 
 .container {
-  height: 98vh;
-  width: 50%;
+  max-width: 500px;
   margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+.container h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+}
+.form-container {
   display: flex;
   flex-direction: column;
+}
+.input-forms {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+.buttons-container {
+  display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
-
-.input-forms {
-  width: 100%;
-  height: 40px;
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+button:hover {
+  background-color: #3e8e41;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2) inset;
+}
+.gender-container {
+  position: relative;
   margin-bottom: 10px;
-  padding: 20px;
 }
-
-.buttons-container {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
+.gender-container i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  color: #999;
+  font-size: 20px;
+}
+#genderInput {
+  padding-right: 30px;
 }
 
 .notes-container {
-  height: 100vh;
-  width: 100%;
-  margin: 0 auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+}
+.notes-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.notesform {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
-
-.notesform {
-  width: 50%;
+.textinputcontainer, .descriptioninputcontainer, .dateinputcontainer {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
 }
-
-.textinputcontainer,
-.descriptioninputcontainer,
-.dateinputcontainer,
+.titleInput, .descriptionInput, .dateInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.descriptionInput {
+  height: 150px;
+  resize: none;
+}
 .add {
   width: 100%;
-}
-
-.titleInput,
-.descriptionInput,
-.dateinput,
-.btns {
-  width: 100%;
-  height: 5vh;
-}
-
-header {
+  max-width: 500px;
   display: flex;
-  justify-content: right;
+  justify-content: center;
+}
+.btns {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btns:hover {
+  background-color: #ff6666;
 }
 
-a {
-  padding: 20px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.details {
-  width: 50%;
-  padding: 10px;
-  margin-top: 20px;
-  text-align: center;
+.viewnotescontainer {
+  max-width: 800px;
   margin: 0 auto;
+}
+
+/* Styles for the note item */
+.item {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* Styles for the note title */
+.note-title {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+/* Styles for the note description */
+.note-description {
+  margin-top: 0;
+}
+
+/* Styles for the note status */
+.note-status {
+  margin-top: 0;
+}
+
+/* Styles for the note date */
+.note-date {
+  margin-top: 0;
+}
+
+/* Styles for the delete button */
+.btn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Styles for the update button */
+.updatebtn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }

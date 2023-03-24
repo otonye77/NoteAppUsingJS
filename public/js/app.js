@@ -99,10 +99,10 @@ if (viewcontainerEl) {
     data.map(({ id, title, description, status, date }) => {
       const notes = `
     <div class="details">
-    <h2 class="starwars">${title}</h2>
-    <h3 class="starwars">${description}</h3>
-    <h4 class="starwars">${status}</h4>
-    <h5 class="starwars">${date}</h5>
+    <h2 class="note-title">${title}</h2>
+    <h3 class="note-description">${description}</h3>
+    <h4 class="note-status">${status}</h4>
+    <h5 class="note-date">${date}</h5>
     <button id="btn" class="btn">Delete</button>
     <button id="updatebtn" class="updatebtn">Update</button>
   </div>
