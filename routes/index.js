@@ -11,6 +11,13 @@ router.get("/register", (req, res) => {
 
 router.get("/", (req, res) => {
   res.render("notes", {
+    title: "Notes Creation Page",
+    name: "OTONYE",
+  });
+});
+
+router.get("/notes", (req, res) => {
+  res.render("viewnotes", {
     title: "Notes Page",
     name: "OTONYE",
   });
