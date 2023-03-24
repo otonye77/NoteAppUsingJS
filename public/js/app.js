@@ -11,7 +11,6 @@ function isAuthenticated() {
 }
 
 if (formEl) {
-  
   formEl.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = {
