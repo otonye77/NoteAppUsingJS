@@ -6,7 +6,12 @@ const numberInput = document.querySelector('input[type="number"]');
 const addressInput = document.querySelector("#addressInput");
 const passwordInput = document.querySelector('input[type="password"]');
 
+function isAuthenticated() {
+  return localStorage.getItem("token") !== null;
+}
+
 if (formEl) {
+  
   formEl.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = {
@@ -42,6 +47,9 @@ const descriptionInputEl = document.querySelector(".descriptionInput");
 const dateInputEl = document.querySelector(".dateInput");
 
 if (notesFormEl) {
+  if (!isAuthenticated()) {
+    window.location.href = "http://localhost:7000/register";
+  }
   notesFormEl.addEventListener("submit", async (e) => {
     e.preventDefault();
     const notesData = {
@@ -70,6 +78,9 @@ if (notesFormEl) {
 
 const viewcontainerEl = document.querySelector(".viewnotescontainer");
 if (viewcontainerEl) {
+  if (!isAuthenticated()) {
+    window.location.href = "http://localhost:7000/register";
+  }
   const getData = async () => {
     try {
       const response = await fetch("http://localhost:7000/users/notes");
@@ -84,7 +95,7 @@ if (viewcontainerEl) {
   const main = async () => {
     const data = await getData();
     viewcontainerEl.innerHTML = "";
-    const list = document.createElement("ul");
+    const list = document.createElement("div");
     data.map(({ id, title, description, status, date }) => {
       const notes = `
     <div class="details">
@@ -96,7 +107,7 @@ if (viewcontainerEl) {
     <button id="updatebtn" class="updatebtn">Update</button>
   </div>
     `;
-      const item = document.createElement("li");
+      const item = document.createElement("div");
       item.classList.add("item");
       item.innerHTML = notes;
       const btn = item.querySelector(".btn");
@@ -160,3 +171,9 @@ if (viewcontainerEl) {
   };
   main();
 }
+
+const signoutEl = document.querySelector(".signout");
+signoutEl.addEventListener("click", () => {
+  localStorage.removeItem("token");
+  window.location.href = "http://localhost:7000/register";
+});
