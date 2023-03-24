@@ -5,6 +5,24 @@ const jwt = require("jsonwebtoken")
 
 const register = async (req, res) => {
   const { name, email, gender, number, address, password } = req.body;
+  if(!name){
+    return res.status(404).send("Name cannot be empty")
+  }
+  if(!email){
+    return res.status(404).send("Email cannot be empty")
+  }
+  if(!gender){
+    return res.status(404).send("Gender cannot be empty")
+  }
+  if(!number){
+    return res.status(404).send("Number cannot be empty")
+  }
+  if(!address){
+    return res.status(404).send("Address cannot be empty")
+  }
+  if(!password){
+    return res.status(404).send("Password cannot be empty")
+  }
   const parsedNumber = parseInt(number, 10);
   try {
     const alreadyExists = await User.findOne({ where: { email } });

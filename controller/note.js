@@ -15,6 +15,15 @@ const getNotes = async (req, res) => {
 
 const createNotes = async (req, res) => {
   const { title, description, date, status } = req.body;
+  if(!title){
+    return res.status(404).send("Title cannot be empty")
+  }
+  if(!description){
+    return res.status(404).send("Description cannot be empty")
+  }
+  if(!date){
+    return res.status(404).send("Title cannot be empty")
+  }
   try {
     let userId = req.user;
     if (!userId) {

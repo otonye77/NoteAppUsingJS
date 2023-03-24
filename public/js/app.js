@@ -69,7 +69,7 @@ if (notesFormEl) {
         body: JSON.stringify(notesData),
       });
       const data = await response.json();
-      console.log(data);
+      window.location.href = "http://localhost:7000/notes"
     } catch (err) {
       throw new Error("Failed to complete");
     }
